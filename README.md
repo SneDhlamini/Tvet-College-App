@@ -71,11 +71,5 @@ npm start
 
 ---
 
-## Architecture Notes (for internship panel)
 
-- **Auth**: JWT-style flow simulated in-browser. In production → Express.js + `jsonwebtoken`
-- **Database**: Mock JS objects. In production → PostgreSQL with `pg` or Prisma ORM
-- **File Upload**: Base64 in-memory. In production → Multer middleware + AWS S3 / local storage
-- **Monorepo layout**: This app lives in `/client`. Add `/server` (Express API) + `/db` (SQL schema)
-- **Agile**: Each page maps to a user story. Each role = a sprint persona.
 
