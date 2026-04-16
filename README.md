@@ -45,31 +45,46 @@ tvet-college/
         └── staff.css                ← PDF uploader + document list styles
 ```
 
+# Maluti TVET College Website
+
+A modern web platform built to centralize information, improve communication, and enhance digital accessibility for Maluti TVET College students, staff, and stakeholders.
+
 ---
 
-## How to Run
+## 📌 Problem Statement
 
+The college previously had limited centralized access to key information. Students and staff often struggled to find updated announcements, course details, and departmental information, leading to delays in communication and a fragmented user experience.
+
+This project solves that by providing a single, structured, and easy-to-use website that consolidates all essential college information in one place.
+
+---
+
+## 🚀 Features
+
+- Clean and responsive homepage
+- Department and course listings
+- Announcements section for updates and notices
+- Structured information pages for college details
+- Easy navigation for students and staff
+- Mobile-friendly design for all devices
+- Modular structure for future expansion (e.g. intranet or student portal)
+
+---
+
+## 🛠️ Tech Stack
+
+*(Update this based on your actual implementation)*
+
+- HTML5 / CSS3 / JavaScript
+- [React / Next.js]
+- Styling: CSS
+
+---
+
+## 📦 Installation & Setup
+
+Follow these steps to run the project locally:
+
+### 1. Clone the repository
 ```bash
-# 1. Install dependencies
-npm install
-
-# 2. Start development server
-npm start
-
-# 3. Open http://localhost:3000
-```
-
----
-
-## Demo Credentials
-
-| Role    | Password   | Access                              |
-|---------|------------|-------------------------------------|
-| Student | demo1234   | Dashboard, Courses, Intranet        |
-| Staff   | demo1234   | Dashboard, Intranet, Staff Portal   |
-| Admin   | demo1234   | Everything + Admin Panel            |
-
----
-
-
-
+git clone https://github.com/your-username/maluti-tvet-website.git
