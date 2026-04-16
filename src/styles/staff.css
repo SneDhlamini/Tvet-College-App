@@ -1,0 +1,331 @@
+/*
+  styles/staff.css
+  ----------------
+  Staff Portal page + PDFUploader component — blue, black & white palette.
+  All class names identical to original.
+*/
+
+/* ══════════════════════════════════════════════════════════════
+   STAFF PORTAL PAGE
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Page Header ── */
+.staff-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.staff-id {
+  font-family: 'Courier New', monospace;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* Role badge — blue instead of green */
+.staff-role-badge {
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--color-staff);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Quick Stats Row ── */
+.staff-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.staff-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  transition: transform var(--transition);
+}
+
+.staff-stat:hover {
+  transform: translateY(-2px);
+}
+
+.staff-stat-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.staff-stat-value {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.staff-stat-label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 3px;
+}
+
+/* ── Section Header ── */
+.staff-section-header {
+  margin-bottom: var(--space-md);
+}
+
+.staff-section-header h2 {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.staff-section-header p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PDF UPLOADER COMPONENT
+   ══════════════════════════════════════════════════════════════ */
+
+.pdf-uploader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ── Category Meta Row ── */
+.uploader-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.uploader-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.uploader-select {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 8px var(--space-md);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  outline: none;
+  cursor: pointer;
+  transition: border-color var(--transition);
+  min-width: 160px;
+}
+
+.uploader-select:focus {
+  border-color: var(--color-accent);
+}
+
+/* ── Drop Zone — blue on hover/active instead of amber ── */
+.drop-zone {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2xl) var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  text-align: center;
+  background: var(--color-surface-2);
+  transition: all var(--transition);
+}
+
+.drop-zone:hover,
+.drop-zone:focus-visible {
+  border-color: var(--color-accent);
+  background: rgba(37, 99, 235, 0.04);
+  outline: none;
+}
+
+.drop-zone-active {
+  border-color: var(--color-accent);
+  background: rgba(37, 99, 235, 0.08);
+  transform: scale(1.01);
+  box-shadow: var(--shadow-glow);
+}
+
+.drop-zone-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.drop-zone-text {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+}
+
+/* "Click to browse" text — blue instead of amber */
+.drop-zone-text strong {
+  color: var(--color-accent);
+}
+
+.drop-zone-hint {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+/* ── Validation Error ── */
+.upload-error {
+  background: rgba(248, 113, 113, 0.08);
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 10px var(--space-md);
+  font-size: 0.85rem;
+  color: var(--color-danger);
+}
+
+/* ── Progress Bar ── */
+.upload-progress-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.upload-progress-label {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.upload-progress-bar {
+  background: var(--color-surface-2);
+  border-radius: 20px;
+  height: 10px;
+  overflow: hidden;
+}
+
+/* Progress fill — blue instead of amber */
+.upload-progress-fill {
+  height: 100%;
+  border-radius: 20px;
+  background: var(--color-accent);
+  transition: width 150ms ease;
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+}
+
+/* ── Success Message ── */
+.upload-success {
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 10px var(--space-md);
+  font-size: 0.85rem;
+  color: var(--color-success);
+}
+
+/* ── Document List ── */
+.document-list {
+  margin-top: var(--space-sm);
+}
+
+.document-list-title {
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.document-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* Individual document row */
+.document-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  transition: border-color var(--transition), transform var(--transition);
+  animation: fadeUp 0.3s ease forwards;
+}
+
+.document-item:hover {
+  border-color: var(--color-accent);
+  transform: translateX(3px);
+}
+
+/* Left: icon + name + size */
+.document-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex: 1;
+  min-width: 0;
+}
+
+.document-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.document-name {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 280px;
+}
+
+.document-meta {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* Right: badge + delete button */
+.document-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .drop-zone {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .document-name {
+    max-width: 160px;
+  }
+}

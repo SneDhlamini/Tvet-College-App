@@ -1,0 +1,131 @@
+/*
+  styles/dashboard.css
+  --------------------
+  Dashboard page — blue, black & white palette.
+  All class names identical to original.
+*/
+
+/* ── Welcome Section ── */
+.dashboard-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+  gap: var(--space-md);
+}
+
+.dashboard-greeting {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.dashboard-name {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 1.1;
+}
+
+.dashboard-role-line {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin-top: 6px;
+}
+
+/* Role badge pill — all variants use the blue family */
+.dashboard-role-badge {
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.dashboard-role-badge-student {
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--color-student);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.dashboard-role-badge-staff {
+  background: rgba(96, 165, 250, 0.12);
+  color: var(--color-staff);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+.dashboard-role-badge-admin {
+  background: rgba(147, 197, 253, 0.12);
+  color: var(--color-admin);
+  border: 1px solid rgba(147, 197, 253, 0.3);
+}
+
+/* ── Card Grid ── */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+/* Individual stat card */
+.dash-card {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-lg);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.dash-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Thin coloured top bar */
+.dash-card-accent {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.dash-card-body {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding-top: var(--space-xs);
+}
+
+.dash-card-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.dash-card-value {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dash-card-label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Info strip ── */
+.dashboard-info {
+  padding: var(--space-lg);
+}
+
+.dashboard-info h3 {
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+}

@@ -1,0 +1,119 @@
+/*
+  styles/navbar.css
+  -----------------
+  Top navigation bar — blue, black & white palette.
+  All class names identical to original.
+*/
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-xl);
+  background: rgba(10, 12, 16, 0.9);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Push page content below the fixed navbar */
+.navbar-spacer {
+  height: 60px;
+}
+
+/* Brand — now blue instead of amber */
+.navbar-brand {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+/* Nav links */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  list-style: none;
+  margin-left: var(--space-xl);
+  flex: 1;
+}
+
+.nav-link {
+  background: none;
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--color-text-primary);
+  background: var(--color-surface-2);
+}
+
+.nav-link.active {
+  color: #ffffff;
+  background: var(--color-accent);
+}
+
+/* Right side */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* Role indicator dot */
+.role-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.role-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* All dots are now in the blue family */
+.role-dot-student { background: var(--color-student); box-shadow: 0 0 6px var(--color-student); }
+.role-dot-staff   { background: var(--color-staff);   box-shadow: 0 0 6px var(--color-staff); }
+.role-dot-admin   { background: var(--color-admin);   box-shadow: 0 0 6px var(--color-admin); }
+
+/* Logout button */
+.logout-btn {
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition);
+}
+.logout-btn:hover {
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .navbar { padding: 0 var(--space-md); }
+  .navbar-links { gap: 0; margin-left: var(--space-sm); }
+  .nav-link { padding: 6px 10px; font-size: 0.8rem; }
+  .role-indicator span { display: none; }
+}

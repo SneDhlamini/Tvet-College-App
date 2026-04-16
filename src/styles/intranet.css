@@ -1,0 +1,241 @@
+/*
+  styles/intranet.css
+  -------------------
+  Intranet notice board — blue, black & white palette.
+  All class names identical to original.
+*/
+
+/* ── Page Header ── */
+.intranet-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+/* ── Success Banner ── */
+.intranet-success {
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 12px var(--space-md);
+  font-size: 0.88rem;
+  color: var(--color-success);
+  margin-bottom: var(--space-md);
+}
+
+/* ── Post Notice Form ── */
+.intranet-post-form {
+  margin-bottom: var(--space-lg);
+}
+
+.intranet-post-form h3 {
+  font-size: 1rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-primary);
+}
+
+.post-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.post-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.field-group-inline,
+.field-group-full {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label-sm {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Form inputs — blue focus ring */
+.intranet-select,
+.intranet-input,
+.intranet-textarea {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 10px var(--space-md);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  width: 100%;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.intranet-select:focus,
+.intranet-input:focus,
+.intranet-textarea:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.intranet-textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.5;
+}
+
+.char-count {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  text-align: right;
+}
+
+/* ── Category Filter Chips ── */
+.intranet-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.filter-chip:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-accent);
+}
+
+/* Active chip — blue instead of amber */
+.filter-chip-active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Count bubble */
+.filter-count {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 0 6px;
+  font-size: 0.72rem;
+}
+
+/* ── Notice List ── */
+.notice-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* ── Individual Notice Card ── */
+.notice-card {
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.notice-card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Pinned notice — blue left border instead of amber */
+.notice-pinned {
+  border-left: 3px solid var(--color-accent);
+}
+
+.notice-pin-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-sm);
+}
+
+/* Notice header */
+.notice-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.notice-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.notice-date {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.notice-title {
+  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.notice-body {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+/* Footer */
+.notice-footer {
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-border);
+}
+
+.notice-author {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* ── Empty State ── */
+.intranet-empty {
+  text-align: center;
+  padding: var(--space-2xl);
+  color: var(--color-text-muted);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .post-form-row {
+    grid-template-columns: 1fr;
+  }
+}

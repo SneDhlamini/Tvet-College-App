@@ -1,0 +1,148 @@
+/*
+  styles/courses.css
+  ------------------
+  Courses page — blue, black & white palette.
+  All class names identical to original.
+*/
+
+.courses-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+/* Summary pill — border updated to blue */
+.courses-summary {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+}
+
+/* ── Course List Layout ── */
+.courses-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-md);
+}
+
+/* ── Individual Course Card ── */
+.course-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.course-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Top row */
+.course-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Module code chip */
+.course-code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  color: var(--color-accent);
+  background: rgba(37, 99, 235, 0.1);
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.course-title {
+  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+.course-lecturer {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+/* ── Progress Bar ── */
+.progress-section {
+  margin-top: var(--space-xs);
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+/* Track */
+.progress-track {
+  background: var(--color-surface-2);
+  border-radius: 20px;
+  height: 8px;
+  overflow: hidden;
+}
+
+/* Fill — colour is still applied via inline style in JSX (dynamic per % value) */
+.progress-fill {
+  height: 100%;
+  border-radius: 20px;
+  animation: progressSlide 0.8s ease forwards;
+  transform-origin: left;
+}
+
+@keyframes progressSlide {
+  from { width: 0 !important; }
+}
+
+/* ── Footer: Grade + Next Assessment ── */
+.course-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-xs);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.grade-label,
+.next-label {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+}
+
+/* Grade value — use blue accent instead of amber */
+.grade-value {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--color-accent);
+  display: block;
+  line-height: 1.2;
+}
+
+.next-value {
+  font-size: 0.82rem;
+  color: var(--color-text-primary);
+  display: block;
+  margin-top: 2px;
+  text-align: right;
+}

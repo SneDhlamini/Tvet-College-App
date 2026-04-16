@@ -1,0 +1,286 @@
+/*
+  styles/login.css
+  ----------------
+  Full-page login screen — blue, black & white palette.
+  All class names are identical to the original.
+*/
+
+/* ── Full-Page Background ── */
+.login-bg {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl) var(--space-md);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative blurred blobs — now blue instead of amber */
+.login-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.12;
+}
+
+.login-blob-1 {
+  width: 500px;
+  height: 500px;
+  background: #2563eb;
+  top: -150px;
+  right: -100px;
+}
+
+.login-blob-2 {
+  width: 400px;
+  height: 400px;
+  background: #1d4ed8;
+  bottom: -100px;
+  left: -80px;
+}
+
+/* ── Login Card Shell ── */
+.login-shell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 520px;
+  background: rgba(17, 19, 24, 0.9);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl) var(--space-xl);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+
+/* ── Branding Block ── */
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+/* Blue monogram circle — replaces amber */
+.login-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--color-accent);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+}
+
+.login-title {
+  font-size: 1.5rem;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.login-subtitle {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* ── Role Selector ── */
+.role-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.role-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-md) var(--space-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: center;
+}
+
+.role-card:hover {
+  background: var(--color-surface-2);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* Active state is still applied inline via JS — this just sets the base */
+.role-card-active {
+  background: var(--color-surface-2);
+}
+
+.role-card-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.role-card-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.role-card-desc {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+}
+
+/* ── Form Fields ── */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.field-input {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 12px var(--space-md);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  width: 100%;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+}
+
+.field-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+
+.field-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Password field wrapper */
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap .field-input {
+  padding-right: 48px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 4px;
+  color: var(--color-text-muted);
+  transition: color var(--transition);
+}
+
+.password-toggle:hover {
+  color: var(--color-text-primary);
+}
+
+/* ── Error Message ── */
+.login-error {
+  background: rgba(248, 113, 113, 0.08);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 10px var(--space-md);
+  font-size: 0.85rem;
+  color: var(--color-danger);
+}
+
+/* ── Submit Button ── */
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+  border-radius: var(--radius-sm);
+}
+
+.login-btn-loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Demo Hint ── */
+.login-hint {
+  margin-top: var(--space-lg);
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.login-hint code {
+  background: var(--color-surface-2);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  color: var(--color-accent);
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .login-shell {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .role-selector {
+    grid-template-columns: 1fr;
+  }
+}

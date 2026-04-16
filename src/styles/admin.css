@@ -1,0 +1,302 @@
+/*
+  styles/admin.css
+  ----------------
+  Admin Panel — blue, black & white palette.
+  All class names identical to original.
+*/
+
+/* ── Page Header ── */
+.admin-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+/* ── Summary Stats Strip ── */
+.admin-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.stat-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-xl);
+  min-width: 90px;
+  transition: transform var(--transition);
+}
+
+.stat-chip:hover {
+  transform: translateY(-2px);
+}
+
+/* Left-border variants — all blue family */
+.stat-chip-active   { border-left: 3px solid var(--color-student); }
+.stat-chip-risk     { border-left: 3px solid var(--color-danger); }
+.stat-chip-inactive { border-left: 3px solid var(--color-text-muted); }
+.stat-chip-gpa      { border-left: 3px solid var(--color-accent); }
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+/* ── Filters Bar ── */
+.admin-filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+/* Search input wrapper */
+.search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 240px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.admin-search {
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 10px 40px 10px 38px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.admin-search:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.admin-search::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Clear button */
+.search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 4px;
+  transition: color var(--transition);
+}
+.search-clear:hover {
+  color: var(--color-danger);
+}
+
+/* Status filter chips */
+.status-filters {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+/* filter-chip — duplicated here so admin works standalone */
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.filter-chip:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-accent);
+}
+.filter-chip-active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Results count */
+.admin-results-count {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+.admin-results-count strong {
+  color: var(--color-text-primary);
+}
+
+/* ── Table Wrapper ── */
+.table-wrap {
+  overflow-x: auto;
+  padding: 0;
+}
+
+/* ── Table ── */
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+/* Sortable column headers */
+.table-th {
+  padding: var(--space-md) var(--space-md);
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
+  white-space: nowrap;
+
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+  user-select: none;         /* Standard */
+  transition: color var(--transition), background var(--transition);
+}
+
+.table-th:hover {
+  color: var(--color-text-primary);
+  background: var(--color-surface-2);
+}
+
+/* Sort arrow — blue instead of amber */
+.sort-arrow {
+  margin-left: 4px;
+  font-size: 0.7rem;
+  color: var(--color-accent);
+}
+.sort-arrow-inactive {
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+/* Table rows */
+.table-row {
+  border-bottom: 1px solid var(--color-border);
+  transition: background var(--transition);
+}
+.table-row:last-child {
+  border-bottom: none;
+}
+.table-row:hover {
+  background: var(--color-surface-2);
+}
+
+.table-td {
+  padding: var(--space-md) var(--space-md);
+  vertical-align: middle;
+}
+
+/* Student ID chip */
+.student-id {
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  background: var(--color-surface-2);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Name column */
+.td-name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  min-width: 180px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+/* Avatar initial circle — blue accent */
+.student-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.td-programme {
+  color: var(--color-text-secondary);
+  min-width: 180px;
+}
+
+/* Year badge */
+.year-badge {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+/* GPA value — colour still applied inline via gpaColor() in JSX */
+.gpa-value {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* ── Empty State ── */
+.admin-empty {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-xl);
+  color: var(--color-text-muted);
+}
