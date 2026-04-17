@@ -1,5 +1,6 @@
 # Tvet-College-App
-A single-page React application demonstrating frontend, auth simulation, role-based access control, database-driven UI  and PDF upload for staff
+A single-page React application demonstrating frontend, auth simulation, role-based access control, database-driven UI  and PDF upload for staff.[Click link to view ](https://tvet-college-sne.netlify.app/)
+
 ## File Structure
 
 ```
